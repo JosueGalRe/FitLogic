@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteBitacoraFecha" language="groovy" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="786ef335-a249-410d-9a77-7daa81d23a94">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="accion" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select (u.nombres+' '+u.usuario), u.usuario, b.event_info, b.fecha
+from Usuario u, Bitacora b
+where u.idusuario = b.usuario AND b.event_info LIKE '%$P{accion}%']]>
+	</queryString>
+	<field name="id_accion" class="java.lang.Integer"/>
+	<field name="usuario" class="java.lang.String"/>
+	<field name="event_info" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="72" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="31" width="57" height="20" uuid="0c36ae6d-12ca-44fd-b5db-e03ebb4b86dc"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="57" y="37" width="515" height="5" uuid="8341f14d-bce3-4e76-8d14-9280c55b1cef"/>
+				<imageExpression><![CDATA["C:\\Users\\Josué Lacayo\\Desktop\\FitLogic 1.4.0\\Reportes\\Barra reportes.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="HH.mm">
+				<reportElement x="472" y="51" width="100" height="20" uuid="c3d87304-436c-494a-b88d-060de8089bcf"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="385" y="51" width="87" height="20" uuid="f2908881-0ca7-45af-9442-087b36828524"/>
+				<text><![CDATA[iReports & FitLogic]]></text>
+			</staticText>
+			<image>
+				<reportElement x="242" y="0" width="112" height="37" uuid="8851df79-6b23-4cee-87c1-26dbd922fa00"/>
+				<imageExpression><![CDATA["C:\\Users\\Josué Lacayo\\Desktop\\FitLogic 1.4.0\\Reportes\\FitLogic x0.50.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="260" y="42" width="72" height="30" uuid="9064ac81-3ddd-4e5f-a1c7-97c082452b89"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="18"/>
+				</textElement>
+				<text><![CDATA[Bitácora]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="143" height="20" uuid="3d4e0487-f8bb-45c1-9552-0600c6759a2e"/>
+				<text><![CDATA[id_accion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="0" width="143" height="20" uuid="387084a7-d816-4d6a-825f-50eac207720c"/>
+				<text><![CDATA[usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="286" y="0" width="143" height="20" uuid="19997b7d-d59b-45f2-a5ec-6954dcd6112e"/>
+				<text><![CDATA[event_info]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="429" y="0" width="143" height="20" uuid="6e2ae89e-bf11-40c1-8c21-d0a1cea597ce"/>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="143" height="20" uuid="e2c5242f-c975-40ed-8fb2-d964f134ae90"/>
+				<textFieldExpression><![CDATA[$F{id_accion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="0" width="143" height="20" uuid="ca2caa6c-4e58-436a-b2b5-7b52801cc296"/>
+				<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="286" y="0" width="143" height="20" uuid="b36c9160-e53c-4b30-a5a7-dd27e2962954"/>
+				<textFieldExpression><![CDATA[$F{event_info}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="429" y="0" width="143" height="20" uuid="2492af29-2d77-4753-aa6d-f226008447d9"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

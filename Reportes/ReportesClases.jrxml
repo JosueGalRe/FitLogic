@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportesClases" language="groovy" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f10b4775-3769-4e86-8feb-670a34935e3d">
+	<property name="ireport.zoom" value="1.610510000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT c.descripcion,c.horainicio,c.horafin,u.nombres,s.nombre
+FROM Clase c, Usuario u,Salon s
+WHERE u.idtipousuario = '4' AND c.idsalon = s.idsalon AND c.idcoach = u.idusuario]]>
+	</queryString>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="horainicio" class="java.sql.Time"/>
+	<field name="horafin" class="java.sql.Time"/>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="54" splitType="Stretch">
+			<textField pattern="HH.mm">
+				<reportElement x="531" y="24" width="39" height="20" uuid="bdc5f560-8d34-4e41-96f9-b4c88bf79ae4"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="4" width="57" height="20" uuid="babc7160-a3bd-4360-95b7-0c743f1f2ea1"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="61" y="49" width="509" height="5" uuid="7250e4fa-ae66-4344-8a0e-7bd0af9f2830"/>
+				<imageExpression><![CDATA["C:\\Users\\Josué Lacayo\\Desktop\\FitLogic 1.4.0\\Reportes\\Barra reportes.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="444" y="24" width="87" height="20" uuid="d866386d-643b-48f5-9871-aff28bf6432d"/>
+				<text><![CDATA[iReports & FitLogic]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="27" width="61" height="27" uuid="772d58c4-bf0f-4382-8769-f1397f6c32a3"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="20"/>
+				</textElement>
+				<text><![CDATA[Clases]]></text>
+			</staticText>
+			<image>
+				<reportElement x="242" y="7" width="112" height="37" uuid="fc416ea6-8967-42c8-9bfd-8c90d22ab4c2"/>
+				<imageExpression><![CDATA["C:\\Users\\Josué Lacayo\\Desktop\\FitLogic 1.4.0\\Reportes\\FitLogic x0.50.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="114" y="0" width="114" height="20" uuid="6053cb08-1715-4b6d-8355-9172b3c020b7"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="12"/>
+				</textElement>
+				<text><![CDATA[Fecha inicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="0" width="114" height="20" uuid="f5a84c3e-9177-4dc7-9bb4-ceed61a696fd"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="12"/>
+				</textElement>
+				<text><![CDATA[Fecha fin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="0" width="114" height="20" uuid="0ed9a85e-d003-4cfb-aff9-69b1ec751893"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="12"/>
+				</textElement>
+				<text><![CDATA[Coach]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="0" width="114" height="20" uuid="40771890-a9cc-403f-9795-8f085de4361e"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="12"/>
+				</textElement>
+				<text><![CDATA[Salón]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="e8b28af0-98d6-44e5-bb34-57c7bcc45b5f"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="12"/>
+				</textElement>
+				<text><![CDATA[Clases]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="24" width="570" height="1" uuid="e8d31382-62dc-48ff-a52a-96f61c1b46c3"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="114" height="20" uuid="4a4eaddd-9061-4078-86d0-be1c76c67885"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="0" width="114" height="20" uuid="106cfce5-972d-4ed8-8006-51e39ecf292e"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horainicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="0" width="114" height="20" uuid="2b1e7ea6-8c72-494a-ab4e-f5be0905a201"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horafin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="0" width="114" height="20" uuid="3407794d-37ca-425c-9e9b-8eed82cb6943"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="0" width="114" height="20" uuid="0ca87089-97d3-40b1-8153-3a6a25abb75b"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteMembresias" language="groovy" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="283216c8-384c-43ef-8f3a-7e66ba9a4c52">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT c.idcliente, u.nombres, u.apellidos, u.usuario, u.email, u.dui, u.telefono, m.tipo
+FROM Usuario u, Membresias m, Cliente c
+WHERE u.idusuario = c.idusuario AND c.idmembresia = m.idmembresia AND u.idtipousuario = 5;]]>
+	</queryString>
+	<field name="idcliente" class="java.lang.Integer"/>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="apellidos" class="java.lang.String"/>
+	<field name="usuario" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="dui" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="434" y="61" width="87" height="20" uuid="0961f927-1472-44ba-a86f-11d6fe8df608"/>
+				<text><![CDATA[iReports & FitLogic]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="37" width="36" height="20" uuid="c5ccaedf-b639-4dff-9cfb-24561f61cbb7"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<text><![CDATA[Usuarios]]></text>
+			</staticText>
+			<textField pattern="HH.mm">
+				<reportElement x="538" y="61" width="33" height="20" uuid="879fbd9a-71a4-4d37-81bd-d821c9edd74e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="61" width="57" height="20" uuid="3fa63f5b-8235-43fb-9a76-a0c0f79b2e32"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="56" width="573" height="5" uuid="8a609147-c11b-4066-8727-52ac4b27c063"/>
+				<imageExpression><![CDATA["C:\\Users\\Josué Lacayo\\Desktop\\FitLogic 1.4.0\\Reportes\\Barra reportes.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="233" y="0" width="112" height="37" uuid="875148e5-a08e-4a26-8668-5a105c7570f6"/>
+				<imageExpression><![CDATA["C:\\Users\\Josué Lacayo\\Desktop\\FitLogic 1.4.0\\Reportes\\FitLogic x0.50.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="11" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="71" height="20" uuid="4c9278ec-b0f9-4cc8-8281-02c965b18caa"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[ID Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="0" width="71" height="20" uuid="24a234ec-00ea-40f5-9bf0-3738bdb5e770"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="142" y="0" width="71" height="20" uuid="30b8dfdf-b30e-4175-953e-d7c875a4f5d1"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="0" width="71" height="20" uuid="4f712dba-5d8b-4d6e-9fb2-3c25cf85a558"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[Usuarios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="0" width="71" height="20" uuid="029943cb-e6ba-41ed-a904-d19eeaf112cc"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="502" y="0" width="57" height="20" uuid="2717b273-aba2-4a01-b973-21d634118995"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[Membresía]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="23" width="570" height="1" uuid="f31e4136-65a5-4f56-97d1-33b781bfc56c"/>
+			</line>
+			<staticText>
+				<reportElement x="438" y="0" width="64" height="20" uuid="479ed6cd-0435-4751-8199-b99f7641cc29"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="0" width="71" height="20" uuid="6887a2e9-63f1-4d60-87f1-eba4f5db4dcf"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[DUI]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="14" y="0" width="57" height="20" uuid="9587c5cc-e03b-4377-9832-73b963105350"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idcliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="0" width="71" height="20" uuid="9b0f4f1a-de7d-4538-884b-5add8f244d6f"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="142" y="0" width="71" height="20" uuid="9cce05e1-26e9-4ccf-9f34-fc20aec28de8"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="0" width="71" height="20" uuid="92e272d5-35a2-4968-bdf7-4212852777e7"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="0" width="71" height="20" uuid="349091a5-150f-4c7a-8e63-e1dfce8b0673"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="502" y="0" width="57" height="20" uuid="b4a2fe56-ca9f-4db7-8505-d61bc21409bb"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="0" width="64" height="20" uuid="d87dab51-dd27-4d2e-abbe-7de4eba89a3f"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="0" width="71" height="20" uuid="8412d681-199d-48a3-a86d-9b08b79d573e"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dui}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

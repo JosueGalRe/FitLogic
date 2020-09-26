@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteFactura" language="groovy" pageWidth="612" pageHeight="332" whenNoDataType="AllSectionsNoDetail" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f97d99b-4661-4e5b-a49b-a1da24f11135">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Factura" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT f.idfactura, c.idcliente, u.nombres, u.apellidos, u.telefono, u.usuario, m.tipo, u.email, p.monto, p.cancelado, p.devuelto
+FROM Cliente c, Usuario u, Membresias m , Pago p, Factura f
+WHERE f.idcliente = c.idcliente AND f.idpago = p.idpago AND c.idmembresia = m.idmembresia AND c.idusuario = u.idusuario AND u.idtipousuario = 5 AND f.idfactura = $P{Factura}]]>
+	</queryString>
+	<field name="idfactura" class="java.lang.Integer"/>
+	<field name="idcliente" class="java.lang.Integer"/>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="apellidos" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="usuario" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="monto" class="java.math.BigDecimal"/>
+	<field name="cancelado" class="java.math.BigDecimal"/>
+	<field name="devuelto" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="66" width="573" height="5" uuid="0093d110-7ba0-4ad5-a5b8-464aa523b399"/>
+				<imageExpression><![CDATA["C:\\Users\\Josué Lacayo\\Desktop\\FitLogic 1.4.0\\Reportes\\Barra reportes.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="231" y="2" width="112" height="37" uuid="32a4ad8d-7a56-491d-92a3-3d23e8850a17"/>
+				<imageExpression><![CDATA["C:\\Users\\Josué Lacayo\\Desktop\\FitLogic 1.4.0\\Reportes\\FitLogic x0.50.png"]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy h:mm aa">
+				<reportElement x="244" y="76" width="87" height="20" uuid="517266db-7cdb-42f2-bb65-8f1c17f1b646"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="254" y="41" width="64" height="30" uuid="efe8a3ea-f13e-4107-a4e5-914f5f537d6d"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="18"/>
+				</textElement>
+				<text><![CDATA[Factura]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="217" y="17" width="56" height="15" uuid="d9e4949f-304c-4203-8e9c-25b5285b1d54"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[Teléfono:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="273" y="17" width="100" height="15" uuid="bd54f55a-0773-4885-ba49-b78561addd65"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="17" width="100" height="15" uuid="15b9b4bd-fcc8-4c4f-ad21-c5cd875c4fe5"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="440" y="17" width="32" height="15" uuid="0377d9cb-6202-450a-9ab9-98a38e3eaf88"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[Email:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="38" width="572" height="1" uuid="e6599ee7-6165-450a-8f0e-de06fb3d46a5"/>
+			</line>
+			<textField>
+				<reportElement x="74" y="17" width="65" height="15" uuid="a6868720-5212-4184-8132-8c35a653f765"/>
+				<textFieldExpression><![CDATA[$F{idfactura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="17" width="73" height="15" uuid="23a60bae-9621-4771-88ea-49232a54b89a"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[ID de factura:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="116" splitType="Stretch">
+			<rectangle>
+				<reportElement x="227" y="55" width="234" height="20" forecolor="#CCCCCC" uuid="4bbb68a8-959b-4a52-8f4c-46ad79b05e21"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="227" y="75" width="234" height="20" forecolor="#CCCCCC" backcolor="#EFEFEF" uuid="a3205131-18df-404b-af6c-20d94438cf3f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="227" y="95" width="234" height="20" forecolor="#CCCCCC" uuid="b5874f69-5a74-47ca-903b-073c865a2fec"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="516" y="55" width="56" height="20" forecolor="#CCCCCC" uuid="a46f3f1b-2d1a-4b89-9448-9571c4850f7c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="516" y="95" width="56" height="20" forecolor="#CCCCCC" uuid="dc7fd1a1-fd3b-424d-b3b7-bf07dd7466d9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="516" y="75" width="56" height="20" forecolor="#CCCCCC" backcolor="#EFEFEF" uuid="ecaf9e33-4eb6-4f04-8013-63905f7bad0f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="461" y="55" width="55" height="20" forecolor="#CCCCCC" uuid="1a6bc90d-6950-4236-936c-a3f9aac8630e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="461" y="95" width="55" height="20" forecolor="#CCCCCC" uuid="2c6bf3dd-7dee-4d68-816a-6e5ea0c063b1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="461" y="75" width="55" height="20" forecolor="#CCCCCC" backcolor="#EFEFEF" uuid="a8ced572-ed9b-4fe1-8a80-db377332e63c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="227" height="26" forecolor="#CCCCCC" backcolor="#FFFFFF" uuid="ef93dcb9-1e9d-44ed-b237-c951673a3f77"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="26" width="227" height="29" forecolor="#CCCCCC" backcolor="#EFEFEF" uuid="60b2dee6-0bc2-4e09-8218-484944a6991b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="227" y="26" width="234" height="29" forecolor="#CCCCCC" backcolor="#EFEFEF" uuid="6d981538-84b1-4bb8-8fdd-d3a3aa3099b0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="227" y="0" width="234" height="26" forecolor="#CCCCCC" backcolor="#FFFFFF" uuid="23fe84bc-3b1a-4966-a5ea-e0d5793ffbb5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="461" y="26" width="111" height="29" forecolor="#CCCCCC" backcolor="#EFEFEF" uuid="a9e3b7dc-a9f3-4259-8ad2-07f03912a1ab"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="461" y="0" width="111" height="26" forecolor="#CCCCCC" backcolor="#FFFFFF" uuid="ab09ed5c-74ed-45c4-b90d-b11c47bc397f"/>
+			</rectangle>
+			<textField>
+				<reportElement x="4" y="31" width="100" height="20" uuid="065b57eb-100e-4103-bfe7-332a1e8ece1b"/>
+				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="231" y="31" width="100" height="20" uuid="40556942-d4ea-4cec-a208-414cdd0f775b"/>
+				<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="31" width="100" height="20" uuid="808a4b0d-bba6-4010-a7f3-dfcafdf4f165"/>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="3" width="100" height="20" uuid="69182567-105a-4b66-9107-4ffdd9abcaad"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="231" y="3" width="100" height="20" uuid="6c04cce1-0e67-4a5f-bf3e-1b2d74588865"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="530" y="75" width="37" height="20" uuid="5f857713-a8d1-485a-86f4-6f0d25fd7c97"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cancelado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="530" y="95" width="37" height="20" uuid="a183d69a-5e6d-4620-a373-3b8acd722ee9"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devuelto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="472" y="75" width="44" height="20" uuid="30befc92-2b08-41a7-bace-77b4d0968b73"/>
+				<text><![CDATA[Pagado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="95" width="44" height="20" uuid="26907fb2-ed1f-4a6e-aab5-937609794e43"/>
+				<text><![CDATA[Cambio]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="530" y="55" width="37" height="20" uuid="cd5c061a-4735-4b51-a25e-e81efb8ce869"/>
+				<textElement>
+					<font fontName="Leelawadee UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="472" y="55" width="44" height="20" uuid="caa782b2-acdf-4c9a-bfae-291f0fb36097"/>
+				<text><![CDATA[A pagar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="3" width="100" height="20" uuid="80d5d088-1260-4e9d-86cb-9bec45f387f5"/>
+				<textElement>
+					<font fontName="Leelawadee UI"/>
+				</textElement>
+				<text><![CDATA[Membresía]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="55" width="227" height="60" forecolor="#CCCCCC" backcolor="#EFEFEF" uuid="25b5194f-119e-4613-84a5-d29b6b54b6f4"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="472" y="0" width="100" height="20" uuid="5cebb923-6c81-4cd1-b0f2-19605576f804"/>
+				<text><![CDATA[Más para tu gimnasio]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
